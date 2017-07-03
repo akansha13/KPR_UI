@@ -30,5 +30,8 @@ public class WeaverLocators {
 	public static String cardlist1 = ")).childSelector(new UiSelector().className(android.widget.TextView).resourceIdMatches(\".*/card_text\"))";
 	public static By sortCard = MobileBy
 			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_sort_cards\")");
-
+	public static By leavetable = MobileBy
+			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_leave_table\")");
+	public static By leaveTableYes = MobileBy
+			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_yes\")");
 }

@@ -56,5 +56,13 @@ public class UserSelectionFuctions {
 			Assert.fail();
 		}
 	}
+	@When("^User selects leave table on table$")
+	public void select_drop_module() throws Throwable {
+		instantPlayPage.selectLeaveTable();
+		if (instantPlayPage == null) {
+			logger.error("seat taken");
+			Assert.fail();
+		}
+	}
 
 }
