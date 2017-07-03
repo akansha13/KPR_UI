@@ -35,7 +35,6 @@ public class InstantPlayPage extends BasePage {
 			ArrayList<String> cardData = new ArrayList<String>();
 			for (int i = 0; i < 13; i++) {
 				cardData.add(findElement(WeaverLocators.cardlist + i + WeaverLocators.cardlist1).getText());
-				
 			}
 			System.out.println(cardData.toString());
 		} else {
@@ -47,6 +46,18 @@ public class InstantPlayPage extends BasePage {
 		if (isElementPresent(WeaverLocators.sortCard, 30))
 			buttonClick(WeaverLocators.sortCard, 5);
 		logger.info("cards sorted");
+	}
+
+	public void selectLeaveTable() {
+		buttonClick(WeaverLocators.leavetable, 5);
+		buttonClick(WeaverLocators.leaveTableYes, 5);
+		if (isElementPresent(WeaverLocators.avatarIcon, 5)) {
+			logger.info("User has left table");
+		} else {
+			logger.warn("User is not left vtable");
+			
+		}
+
 	}
 
 }
