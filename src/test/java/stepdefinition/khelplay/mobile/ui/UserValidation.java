@@ -18,7 +18,6 @@ public class UserValidation {
 	@Then("^User validates Lobby is visible in app$")
 	public void user_validates_Lobby_is_visible_in_app() throws Throwable {
 		mobileHomePage = mobileLoginPage.clickLogin();
-
 		if (mobileHomePage == null) {
 			logger.error("User is not navigated to Lobby");
 			Assert.fail();
@@ -28,7 +27,6 @@ public class UserValidation {
 	@Then("^User validates Lobby is not visible in app$")
 	public void user_validates_Lobby_is_not_visible_in_app() throws Throwable {
 		mobileHomePage = mobileLoginPage.clickLogin();
-
 		if (mobileLoginPage != null) {
 			logger.error("User is not navigated to Lobby");
 			Assert.fail();

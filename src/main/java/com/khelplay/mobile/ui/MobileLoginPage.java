@@ -8,14 +8,13 @@ import org.slf4j.LoggerFactory;
 import com.khelplay.common.BasePage;
 import com.khelplay.objectrepository.mobile.WeaverLocators;
 
-
 public class MobileLoginPage extends BasePage {
 	private static Logger logger = LoggerFactory.getLogger(MobileLoginPage.class);
 	public static MobileLoginPage obj;
 
 	public MobileLoginPage(WebDriver driver) throws InterruptedException {
 		super(driver);
-		System.out.println(driver);
+		logger.info("" + driver);
 		Thread.sleep(10000);
 		initiate();
 		if (isElementPresent(WeaverLocators.usernameAndroid, 5)) {
@@ -59,11 +58,8 @@ public class MobileLoginPage extends BasePage {
 			}
 
 		} catch (Exception e) {
-			
+
 		}
 		return null;
 	}
 }
-
-
-
