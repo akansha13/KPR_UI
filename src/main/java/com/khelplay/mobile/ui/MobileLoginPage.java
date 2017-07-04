@@ -1,19 +1,21 @@
 package com.khelplay.mobile.ui;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.khelplay.common.BasePage;
-import com.skilrock.objectrepository.mobile.WeaverLocators;
+import com.khelplay.objectrepository.mobile.WeaverLocators;
 
 public class MobileLoginPage extends BasePage {
 	private static Logger logger = LoggerFactory.getLogger(MobileLoginPage.class);
+	public static MobileLoginPage obj;
 
 	public MobileLoginPage(WebDriver driver) throws InterruptedException {
 		super(driver);
-		System.out.println(driver);
+		logger.info("" + driver);
 		Thread.sleep(10000);
 		initiate();
 		if (isElementPresent(WeaverLocators.usernameAndroid, 5)) {
@@ -57,8 +59,38 @@ public class MobileLoginPage extends BasePage {
 			}
 
 		} catch (Exception e) {
-			
+
 		}
 		return null;
+	}
+
+	public boolean verifyInvalidLogin(String errormsg) {
+
+		boolean flag = false;
+		buttonClick(WeaverLocators.loginAndroid, 10);
+		if (isElementPresent(WeaverLocators.updatePopUp, 2)) {
+			buttonClick(WeaverLocators.okButton, 10);
+		} else {
+			logger.info("Notification pop up not present");
+		}
+		if (isElementPresent(WeaverLocators.invalidLoginMsg, 2)) {
+			flag = errormsg.equalsIgnoreCase(findElement(WeaverLocators.invalidLoginMsg, 5).getText());
+
+		} else if (isElementPresent(WeaverLocators.enterUsername, 2)
+				&& isElementPresent(WeaverLocators.enterPassword, 2)) {
+			
+			flag = errormsg.equalsIgnoreCase(findElement(WeaverLocators.enterUsername, 5).getText() + " "
+					+ findElement(WeaverLocators.enterPassword, 2).getText());
+		} else if (isElementPresent(WeaverLocators.enterPassword, 2)) {
+			
+			flag = errormsg.equalsIgnoreCase(findElement(WeaverLocators.enterPassword, 5).getText());
+
+		} else if (isElementPresent(WeaverLocators.enterUsername, 2)) {
+			
+			flag = errormsg.equalsIgnoreCase(findElement(WeaverLocators.enterUsername, 5).getText());
+
+		}
+		return flag;
+
 	}
 }

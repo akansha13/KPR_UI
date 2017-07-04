@@ -1,4 +1,4 @@
-package com.skilrock.objectrepository.mobile;
+package com.khelplay.objectrepository.mobile;
 
 import org.openqa.selenium.By;
 
@@ -32,6 +32,9 @@ public class WeaverLocators {
 			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_sort_cards\")");
 	public static By leavetable = MobileBy
 			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_leave_table\")");
-	public static By leaveTableYes = MobileBy
-			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_yes\")");
+	public static By leaveTableYes = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_yes\")");
+	public static By invalidLoginMsg = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/txt_msg\")");
+	public static By enterPassword = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/password_error\")");
+	public static By enterUsername = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/username_error\")");
+	
 }

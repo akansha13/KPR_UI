@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.khelplay.common.BasePage;
-import com.skilrock.objectrepository.mobile.WeaverLocators;
+import com.khelplay.objectrepository.mobile.WeaverLocators;
 
 public class InstantPlayPage extends BasePage {
 	public static Object obj;

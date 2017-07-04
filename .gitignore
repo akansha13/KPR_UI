@@ -1,1 +1,14 @@
-/target/
+target/
+Config.properties
+logs.log
+.classpath
+.project
+.settings/
+logs.log
+debug.log
+bin/
+debug.log
+.metadata/
+index.lock
+Config.properties
+RunTest.java

@@ -1,5 +1,6 @@
 package stepdefinition.khelplay.mobile.ui;
 
+
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 
@@ -15,9 +16,18 @@ public class UserNavigationFunctions {
 	MobileLoginPage mobileLoginPage;
 	public MobileHomePage mobileHomePage;
 	private static Logger logger = Logger.getLogger(UserNavigationFunctions.class);
+
 	
 	@Given("^User navigates to login popup$")
 	public void user_navigates_to_login_popup() throws Throwable {
+		try {
+			mobileLoginPage = new MobileLoginPage(AttachHooks.driver);
+		} catch (Exception e) {
+			logger.warn("Exception Occured:" + e);
+			logger.error("User is not navigated to login pop up");
+			Assert.fail();
+		}
+		MobileLoginPage.obj = mobileLoginPage;
 	  
 	}
 	
