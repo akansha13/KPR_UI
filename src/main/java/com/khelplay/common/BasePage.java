@@ -46,7 +46,7 @@ public class BasePage {
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		functionLibrary = new CommonFunctionLibrary(this.driver);
-		connnection=DBConnection.getInstance();
+		connnection = DBConnection.getInstance();
 	}
 
 	public boolean isElementPresent(By locator, int timeoutInSeconds) {

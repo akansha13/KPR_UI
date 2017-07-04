@@ -13,7 +13,7 @@ public class UserTextboxFunctions {
 	MobileLoginPage mobileLoginPage = (MobileLoginPage) MobileLoginPage.obj;
 	public static Logger logger = Logger.getLogger(UserTextboxFunctions.class);
 
-	@When("^User enters valid app credentials are entered in app$")
+	@When("^User enters valid app credentials in app$")
 	public void user_enters_valid_app_credentials_are_entered_in_app() throws Throwable {
 		try {
 			mobileLoginPage.username(ConfigManager.getProperty("Username"));
@@ -23,12 +23,12 @@ public class UserTextboxFunctions {
 		}
 	}
 
-	@When("^User enters invalid Username (\\w+)$")
+	@When("^User enters invalid Username (.*)$")
 	public void User_enters_invalid_Username(String username) throws Throwable {
 		mobileLoginPage.username(username);
 	}
 
-	@When("^User enters invalid Password (\\w+)$")
+	@When("^User enters invalid Password (.*)$")
 	public void User_enters_invalid_Password(String password) throws Throwable {
 		mobileLoginPage.password(password);
 	}
