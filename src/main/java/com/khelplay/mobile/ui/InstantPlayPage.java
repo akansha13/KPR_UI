@@ -54,10 +54,15 @@ public class InstantPlayPage extends BasePage {
 		if (isElementPresent(WeaverLocators.avatarIcon, 5)) {
 			logger.info("User has left table");
 		} else {
-			logger.warn("User is not left vtable");
+			logger.warn("User has not left table");
 			
 		}
 
+	}
+
+	public void selectClosedCard() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
