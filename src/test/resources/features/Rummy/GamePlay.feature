@@ -32,4 +32,4 @@ Feature: KPR game play
     When User selects take seat on table
     And User selects sort cards on table
     And User select card from closed deck
-    Then User validates wrong show
+   # Then User validates wrong show

@@ -33,8 +33,15 @@ public class WeaverLocators {
 	public static By leavetable = MobileBy
 			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_leave_table\")");
 	public static By leaveTableYes = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_yes\")");
-	public static By invalidLoginMsg = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/txt_msg\")");
-	public static By enterPassword = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/password_error\")");
-	public static By enterUsername = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/username_error\")");
-	
+	public static By invalidLoginMsg = MobileBy
+			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/txt_msg\")");
+	public static By enterPassword = MobileBy
+			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/password_error\")");
+	public static By enterUsername = MobileBy
+			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/username_error\")");
+	public static By timer_1G = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/timer_1G\")");
+	public static By closedDeck = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/card_deck\")");
+	public static String card14 = "new UiSelector().className(android.widget.RelativeLayout).resourceIdMatches(\".*/layout_card_distribution\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(13))";
+	public static By meld = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_meld\")");
+
 }

@@ -237,7 +237,6 @@ public class BasePage {
 			Thread.sleep(2000);
 			return true;
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}
