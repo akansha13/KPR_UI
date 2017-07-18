@@ -1,6 +1,5 @@
 package com.khelplay.mobile.ui;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -28,7 +27,7 @@ public class MobileLoginPage extends BasePage {
 	}
 
 	public void initiate() {
-		if (findElement(WeaverLocators.updatePopUp, 5).getText().contains("Update Available")) {
+		if (isElementPresent(WeaverLocators.updatePopUp, 5)) {
 			buttonClick(WeaverLocators.laterButton, 5);
 		} else {
 			logger.info("update popup is not present");

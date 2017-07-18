@@ -36,5 +36,10 @@ public class WeaverLocators {
 	public static By invalidLoginMsg = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/txt_msg\")");
 	public static By enterPassword = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/password_error\")");
 	public static By enterUsername = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/username_error\")");
-	
+	public static By forgotPassword = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/forgot_pswd\")");
+	public static By resetPassword = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/title\")");
+	public static By emailForgotPassword = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/email\")");
+	public static By loginPage = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/login_title\")");
+	public static By forgotPasswordError = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/email_error\")");
+	public static By submitForgotPassword = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_submit\")");
 }

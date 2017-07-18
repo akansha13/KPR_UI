@@ -4,6 +4,7 @@ package stepdefinition.khelplay.mobile.ui;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 
+import com.khelplay.mobile.ui.ForgotPasswordPage;
 import com.khelplay.mobile.ui.MobileHomePage;
 import com.khelplay.mobile.ui.MobileLoginPage;
 import com.khelplay.utils.ConfigManager;
@@ -15,6 +16,7 @@ import stepdefinition.AttachHooks;
 public class UserNavigationFunctions {
 	MobileLoginPage mobileLoginPage;
 	public MobileHomePage mobileHomePage;
+	ForgotPasswordPage forgotPasswordPage;
 	private static Logger logger = Logger.getLogger(UserNavigationFunctions.class);
 
 	
@@ -48,6 +50,18 @@ public class UserNavigationFunctions {
 			Assert.fail();
 		}
 		MobileHomePage.obj = mobileHomePage;
+	}
+	
+	@Given("^User navigates to Forgot Password$")
+	public void user_navigates_to_forgot_password() throws Throwable {
+		try {
+			forgotPasswordPage = new ForgotPasswordPage(AttachHooks.driver);
+		} catch (Exception e) {
+			logger.warn("Exception Occured:" + e);
+			logger.error("User is not navigated to Forgot Password");
+			Assert.fail();
+		}
+		ForgotPasswordPage.obj = forgotPasswordPage;
 	}
 	
 	
