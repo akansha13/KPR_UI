@@ -15,7 +15,7 @@ public class MobileLoginPage extends BasePage {
 	public MobileLoginPage(WebDriver driver) throws InterruptedException {
 		super(driver);
 		logger.info("" + driver);
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		initiate();
 		if (isElementPresent(WeaverLocators.usernameAndroid, 5)) {
 			logger.info("Login popup is present");

@@ -3,6 +3,7 @@ package com.khelplay.mobile.ui;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -10,6 +11,8 @@ import org.slf4j.LoggerFactory;
 
 import com.khelplay.common.BasePage;
 import com.khelplay.objectrepository.mobile.WeaverLocators;
+
+import io.appium.java_client.MobileBy;
 
 public class InstantPlayPage extends BasePage {
 	public static Object obj;
@@ -54,8 +57,25 @@ public class InstantPlayPage extends BasePage {
 		if (isElementPresent(WeaverLocators.avatarIcon, 5)) {
 			logger.info("User has left table");
 		} else {
-			logger.warn("User is not left vtable");
+			logger.warn("User has not left table");
+
+		}
+
+	}
+
+	public void selectClosedCard() {
+
+		if (isElementPresent(WeaverLocators.timer_1G, 45)) {
+			buttonClick(WeaverLocators.closedDeck, 5);
+			//boolean flag=isElementPresent(WeaverLocators.cardlist + 13 + WeaverLocators.cardlist1, 5);
+			findElement(WeaverLocators.cardlist + 13 + WeaverLocators.cardlist1).click();
 			
+			//boolean flag2 = isElementPresent(
+					//MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_drop\")"), 5);
+			findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_drop\")"),5).click();
+			buttonClick(WeaverLocators.leaveTableYes,5);
+			buttonClick(WeaverLocators.meld,5);
+			buttonClick(WeaverLocators.leaveTableYes,5);
 		}
 
 	}
