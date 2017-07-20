@@ -28,6 +28,9 @@ public class WeaverLocators {
 	public static String cardlist = "new UiSelector().className(android.widget.RelativeLayout).resourceIdMatches(\".*/layout_card_distribution\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(";
 
 	public static String cardlist1 = ")).childSelector(new UiSelector().className(android.widget.TextView).resourceIdMatches(\".*/card_text\"))";
+
+	public static String cardImageData = ")).childSelector(new UiSelector().className(android.widget.ImageView).resourceIdMatches(\".*/card_suit_img\"))";
+
 	public static By sortCard = MobileBy
 			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_sort_cards\")");
 	public static By leavetable = MobileBy
@@ -54,5 +57,9 @@ public class WeaverLocators {
 	public static By closedDeck = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/card_deck\")");
 	public static String card14 = "new UiSelector().className(android.widget.RelativeLayout).resourceIdMatches(\".*/layout_card_distribution\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(13))";
 	public static By meld = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_meld\")");
+	public static By drawerIcon = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/game_menu\")");
+	public static By drawerList = MobileBy.AndroidUIAutomator(
+			"new UiSelector().className(android.widget.ExpandableListView).resourceIdMatches(\".*/drawer_listview\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(0))");
 
+	public static String fisrtHandHistory = "new UiSelector().className(android.widget.HorizontalScrollView).resourceIdMatches(\".*/scroll_history\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(";
 }

@@ -1,10 +1,10 @@
 package stepdefinition.khelplay.mobile.ui;
 
-
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 
 import com.khelplay.mobile.ui.ForgotPasswordPage;
+import com.khelplay.mobile.ui.InstantPlayPage;
 import com.khelplay.mobile.ui.MobileHomePage;
 import com.khelplay.mobile.ui.MobileLoginPage;
 import com.khelplay.utils.ConfigManager;
@@ -12,16 +12,13 @@ import com.khelplay.utils.ConfigManager;
 import cucumber.api.java.en.Given;
 import stepdefinition.AttachHooks;
 
-
-
-
 public class UserNavigationFunctions {
 	MobileLoginPage mobileLoginPage;
 	public MobileHomePage mobileHomePage;
 	ForgotPasswordPage forgotPasswordPage;
+	InstantPlayPage instantPlayPage;
 	private static Logger logger = Logger.getLogger(UserNavigationFunctions.class);
 
-	
 	@Given("^User navigates to login popup$")
 	public void user_navigates_to_login_popup() throws Throwable {
 		try {
@@ -32,9 +29,9 @@ public class UserNavigationFunctions {
 			Assert.fail();
 		}
 		MobileLoginPage.obj = mobileLoginPage;
-	  
+
 	}
-	
+
 	@Given("^User is logged in app$")
 	public void user_is_logged_in() throws Throwable {
 		try {
@@ -46,14 +43,14 @@ public class UserNavigationFunctions {
 		}
 		mobileLoginPage.username(ConfigManager.getProperty("Username"));
 		mobileLoginPage.password(ConfigManager.getProperty("Password"));
- 		mobileHomePage = mobileLoginPage.clickLogin();
+		mobileHomePage = mobileLoginPage.clickLogin();
 		if (mobileHomePage == null) {
 			logger.error("User is not navigated to Home Page");
 			Assert.fail();
 		}
 		MobileHomePage.obj = mobileHomePage;
 	}
-	
+
 	@Given("^User navigates to Forgot Password$")
 	public void user_navigates_to_forgot_password() throws Throwable {
 		try {
@@ -65,6 +62,5 @@ public class UserNavigationFunctions {
 		}
 		ForgotPasswordPage.obj = forgotPasswordPage;
 	}
-	
-	
+
 }

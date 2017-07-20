@@ -31,7 +31,7 @@ public class AttachHooks {
 	public static WebDriver driver;
 	DesiredCapabilities capabilities;
 	private static Logger LOGGER = LoggerFactory.getLogger(AttachHooks.class);
-	public static boolean flag=false, saleFlag = false, unsoldFlag = false, winFlag = false;
+	public static boolean flag = false, saleFlag = false, unsoldFlag = false, winFlag = false;
 	CommonFunctionLibrary functionLibrary;
 
 	@Before
@@ -41,24 +41,20 @@ public class AttachHooks {
 		this.scenario = scenario;
 		System.out.println(scenario.getName());
 
-
 		if (System.getenv("ExecutionPlatform") != null) {
-
 			if (System.getenv("ExecutionPlatform").equalsIgnoreCase("Api"))
 				ConfigManager.setProperty("ExecutionPlatform", "api");
 			System.out.println("Environment Variable fetched from jenkins = " + System.getenv("ExecutionPlatform"));
 			ConfigManager.getProperty("ExecutionPlatform");
-
 		}
 
 		if (System.getenv("ExecutionPlatform") != null) {
-
 			if (System.getenv("ExecutionPlatform").equalsIgnoreCase("Web"))
 				ConfigManager.setProperty("ExecutionPlatform", "Web");
 			System.out.println("Environment Variable fetched from jenkins = " + System.getenv("ExecutionPlatform"));
 			ConfigManager.getProperty("ExecutionPlatform");
-
 		}
+
 		if (ConfigManager.getProperty("ExecutionPlatform").equalsIgnoreCase("Mobile")) {
 			if (ConfigManager.getProperty("PlatformName").equalsIgnoreCase("Android")) {
 				try {
@@ -105,8 +101,6 @@ public class AttachHooks {
 		if (ConfigManager.getProperty("ExecutionPlatform").equalsIgnoreCase("MobileWeb")) {
 			if (ConfigManager.getProperty("PlatformName").equalsIgnoreCase("Android")) {
 				try {
-					// DriverFactory.appiumStop();
-					// Thread.sleep(5000);
 					DriverFactory.appiumStart();
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -173,7 +167,7 @@ public class AttachHooks {
 			functionLibrary.embedScreenshot(scenario);
 			driver.quit();
 		}
-		
+
 	}
 
 }
