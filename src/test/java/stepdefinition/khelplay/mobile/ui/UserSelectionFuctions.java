@@ -8,6 +8,7 @@ import com.khelplay.mobile.ui.InstantPlayPage;
 import com.khelplay.mobile.ui.MobileHomePage;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class UserSelectionFuctions {
@@ -23,46 +24,29 @@ public class UserSelectionFuctions {
 			logger.error("User is not navigated to instant Play Page");
 			Assert.fail();
 		}
+		InstantPlayPage.obj=instantPlayPage;
 	}
-	@Given("^User selects take seat on table$")
+	@When("^User selects take seat on table$")
 	public void select_takeseat_module() throws Throwable {
 		instantPlayPage.selectTakeSeat();
-		if (instantPlayPage == null) {
-			logger.error("seat taken");
-			Assert.fail();
-		}
 	}
 	@When("^User selects cards data from table$")
 	public void select_carddata_module() throws Throwable {
 		instantPlayPage.selectCardData();
-		if (instantPlayPage == null) {
-			logger.error("seat taken");
-			Assert.fail();
-		}
 	}
-	/*@When("^User selects cards image data from table$")
-	public void select_card_imagedata_module() throws Throwable {
-		instantPlayPage.selectCardImageData();
-		if (instantPlayPage == null) {
-			logger.error("seat taken");
-			Assert.fail();
-		}
-	}*/
+	
 	@When("^User selects sort cards on table$")
 	public void select_card_sort_module() throws Throwable {
 		instantPlayPage.selectSortCard();
-		if (instantPlayPage == null) {
-			logger.error("seat taken");
-			Assert.fail();
-		}
 	}
-	@When("^User selects leave table on table$")
+	@Then("^User selects leave table on table$")
 	public void select_drop_module() throws Throwable {
 		instantPlayPage.selectLeaveTable();
-		if (instantPlayPage == null) {
-			logger.error("seat taken");
-			Assert.fail();
-		}
+	}
+	
+	@When("^User select card from closed deck$")
+	public void select_sort_module() throws Throwable {
+		instantPlayPage.selectClosedCard();
 	}
 
 }

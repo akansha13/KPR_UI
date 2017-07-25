@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.khelplay.mobile.ui.ForgotPasswordPage;
+import com.khelplay.mobile.ui.InstantPlayPage;
 import com.khelplay.mobile.ui.MobileChangePassword;
 import com.khelplay.mobile.ui.MobileHomePage;
 import com.khelplay.mobile.ui.MobileLoginPage;
@@ -19,6 +20,8 @@ public class UserValidation {
 	MobileHomePage mobileHomePage;
 	MobileRegistrationPage mobileRegistrationPage = (MobileRegistrationPage) MobileRegistrationPage.obj;
 	MobileChangePassword mobileChangePassword = (MobileChangePassword) MobileChangePassword.obj;
+	InstantPlayPage instantPlayPage = (InstantPlayPage) InstantPlayPage.obj;
+
 	private static Logger logger = LoggerFactory.getLogger(UserValidation.class);
 	private boolean flag;
 
@@ -45,26 +48,27 @@ public class UserValidation {
 	@Then("^User validates Login Screen is visible in App$")
 	public void user_validates_Login_Screen_is_visible_in_app() throws Throwable {
 		flag= forgotPasswordPage.verifyValidForgotPassword();
+
 		if (flag) {
 			logger.info("Reset Password Link sent successfully with valid credentials");
 		} else {
 			logger.warn("Reset Password Link not sent successfully with valid credentials");
 			Assert.fail();
 		}
-		
+
 	}
-	
+
 	@Then("^User validates error messages (.*) visible in App$")
-	public void user_validates_error_message_on_forgotPassword(String errormsg) throws Throwable{
+	public void user_validates_error_message_on_forgotPassword(String errormsg) throws Throwable {
 		flag = forgotPasswordPage.verifyInvalidForgotPassword(errormsg);
-		if (flag){
+		if (flag) {
 			logger.info("User not able to make forgot password request with invalid/blank email ID");
 		} else {
 			logger.warn("User is able to make forgot password request with invalid/blank email ID");
 			Assert.fail();
 		}
 	}
-	
+
 	@Then("^User validates Lobby is visible in App$")
 	public void user_validates_Lobby_is_visible_in_App() throws Throwable {
 		flag = mobileRegistrationPage.verifyValidRegistration();
@@ -75,9 +79,9 @@ public class UserValidation {
 			Assert.fail();
 		}
 	}
-	
+
 	@Then("^User validates error messages (.*) on Registration Screen$")
-	public void user_validates_error_messages_on_registration_screen(String errormsg) throws Throwable{
+	public void user_validates_error_messages_on_registration_screen(String errormsg) throws Throwable {
 		flag = mobileRegistrationPage.verifyInvalidRegistration(errormsg);
 		if (flag) {
 			logger.info("User not able to Register with invalid/blank Registration details");
@@ -97,9 +101,9 @@ public class UserValidation {
 			Assert.fail();
 		}
 	}
-	
+
 	@Then("^User validates error messages (.*) on Change Password Screen$")
-	public void user_validates_error_messages_on_changePassword_screen(String errormsg) throws Throwable{
+	public void user_validates_error_messages_on_changePassword_screen(String errormsg) throws Throwable {
 		flag = mobileChangePassword.verifyInvalidChangePassword(errormsg);
 		if (flag) {
 			logger.info("User not able to Change Password with invalid/blank password details");
@@ -108,5 +112,17 @@ public class UserValidation {
 			Assert.fail();
 		}
 	}
-	
+
+	@Then("^User validates (.*) data$")
+	public void user_validates_history(String string) throws Throwable {
+		instantPlayPage.getFistHandHistory();
+		flag = instantPlayPage.verifyCardData();
+		if (flag) {
+			logger.info("card data and first hand card data matched");
+		} else {
+			logger.warn("card data and first hand card data didn't matched");
+			Assert.fail();
+		}
+	}
+
 }

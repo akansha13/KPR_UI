@@ -1,24 +1,43 @@
 @Rummy @Mobile @Hybrid @GamePlay
 Feature: KPR game play
 
-  @InstantPlay @Deals
-  Scenario: Validate game play
+  @InstantPlay @Deals @CardData
+  Scenario: Validate cards data from table
     Given User is logged in app
     And User selects "InstantPlay" game module app icon
-    And User selects take seat on table
-    When User selects cards data from table
+    When User selects take seat on table
+    And User selects cards data from table
+    Then User selects leave table on table
 
   @InstantPlay @Deals @Sort
-  Scenario: Validate game play
+  Scenario: Validate sort cards on table
     Given User is logged in app
     And User selects "InstantPlay" game module app icon
-    And User selects take seat on table
-    When User selects sort cards on table
+    When User selects take seat on table
+    And User selects sort cards on table
+    Then User selects leave table on table
 
-  @InstantPlay @Deals @Leavetable
-  Scenario: Validate game play
+  @InstantPlay @Deals @LeaveTable
+  Scenario: Validate leave table on table
     Given User is logged in app
     And User selects "InstantPlay" game module app icon
-    And User selects take seat on table
-    When User selects sort cards on table
-    And User selects leave table on table
+    When User selects take seat on table
+    And User selects sort cards on table
+    Then User selects leave table on table
+
+  @InstantPlay @Deals @WrongShow
+  Scenario: Validate leave table on table
+    Given User is logged in app
+    And User selects "InstantPlay" game module app icon
+    When User selects take seat on table
+    And User selects sort cards on table
+    And User select card from closed deck
+
+  # Then User validates wrong show
+  @InstantPlay @Deals @FirstHandHistory
+  Scenario: Validate leave table on table
+    Given User is logged in app
+    And User selects "InstantPlay" game module app icon
+    When User selects take seat on table
+    And User selects cards data from table
+    Then User validates "First Hand History" data

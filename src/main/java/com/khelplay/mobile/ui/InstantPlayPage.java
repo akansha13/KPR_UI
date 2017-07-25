@@ -1,15 +1,19 @@
 package com.khelplay.mobile.ui;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
+import org.junit.Assert;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.khelplay.common.BasePage;
+import com.khelplay.objectrepository.mobile.GamePlayBean;
 import com.khelplay.objectrepository.mobile.WeaverLocators;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 
 public class InstantPlayPage extends BasePage {
 	public static Object obj;
@@ -27,19 +31,45 @@ public class InstantPlayPage extends BasePage {
 
 	public void selectTakeSeat() {
 		buttonClick(WeaverLocators.takeSeat, 5);
-
 	}
 
 	public void selectCardData() {
 		if (isElementPresent(WeaverLocators.sortCard, 30)) {
-			ArrayList<String> cardData = new ArrayList<String>();
+			ArrayList<String> cardDataList = new ArrayList<String>();
 			for (int i = 0; i < 13; i++) {
-				cardData.add(findElement(WeaverLocators.cardlist + i + WeaverLocators.cardlist1).getText());
+				String[] cardInfo = findElement(WeaverLocators.cardlist + i + WeaverLocators.cardImageData)
+						.getAttribute("name").split("\\s+");
+				String cardData = "";
+				String symbol = cardInfo[0];
+
+				switch (symbol) {
+				case "0":
+					cardData = cardInfo[1] + "-DIAMOND";
+					break;
+				case "1":
+					cardData = cardInfo[1] + "-SPADE";
+					break;
+				case "2":
+					cardData = cardInfo[1] + "-HEART";
+					break;
+				case "3":
+					cardData = cardInfo[1] + "-CLUB";
+					break;
+				case "4":
+					cardData = "JOKER";
+					break;
+				default:
+					Assert.fail();
+				}
+				cardDataList.add(cardData);
 			}
-			System.out.println(cardData.toString());
+
+			logger.info(cardDataList.toString());
+			GamePlayBean.setGamePlayCardList(cardDataList);
 		} else {
-			logger.info("sort button not displayed");
+			logger.error("sort button not displayed");
 		}
+
 	}
 
 	public void selectSortCard() {
@@ -54,10 +84,68 @@ public class InstantPlayPage extends BasePage {
 		if (isElementPresent(WeaverLocators.avatarIcon, 5)) {
 			logger.info("User has left table");
 		} else {
-			logger.warn("User is not left vtable");
-			
+			logger.warn("User has not left table");
+		}
+	}
+
+	public void selectClosedCard() {
+
+		if (isElementPresent(WeaverLocators.timer_1G, 45)) {
+			buttonClick(WeaverLocators.closedDeck, 5);
+			findElement(WeaverLocators.cardlist + 13 + WeaverLocators.cardlist1).click();
+			findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_drop\")"), 5).click();
+			buttonClick(WeaverLocators.leaveTableYes, 5);
+			buttonClick(WeaverLocators.meld, 5);
+			buttonClick(WeaverLocators.leaveTableYes, 5);
 		}
 
+	}
+
+	public void getFistHandHistory() {
+		ArrayList<String> cardDataList = new ArrayList<String>();
+		buttonClick(WeaverLocators.drawerIcon, 5);
+		buttonClick(WeaverLocators.drawerList, 5);
+		for (int i = 0; i < 13; i++) {
+			String[] cardInfo = findElement(WeaverLocators.fisrtHandHistory + i + WeaverLocators.cardImageData)
+					.getAttribute("name").split("\\s+");
+			String cardData = "";
+			String symbol = cardInfo[0];
+			switch (symbol) {
+			case "0":
+				cardData = cardInfo[1] + "-DIAMOND";
+				break;
+			case "1":
+				cardData = cardInfo[1] + "-SPADE";
+				break;
+			case "2":
+				cardData = cardInfo[1] + "-HEART";
+				break;
+			case "3":
+				cardData = cardInfo[1] + "-CLUB";
+				break;
+			case "4":
+				cardData = "JOKER";
+				break;
+			default:
+				Assert.fail();
+			}
+			cardDataList.add(cardData);
+
+			if (i == 4 || i == 9) {
+				((AppiumDriver) driver).swipe(1973, 403, 1000, 403, 1200);
+			}
+		}
+		GamePlayBean.setFistHandCardList(cardDataList);
+	}
+
+	public boolean verifyCardData() {
+		boolean flag;
+		if (GamePlayBean.getGamePlayCardList().toString().equals(GamePlayBean.getFistHandCardList().toString())) {
+			flag = true;
+		} else {
+			flag = false;
+		}
+		return flag;
 	}
 
 }

@@ -167,36 +167,6 @@ public class CommonFunctionLibrary {
 		dropdownitem.selectByVisibleText(Value);
 	}
 
-	public String integerToMonthConverter(String num) {
-		if (num.equals("01")) {
-			month = "January";
-		} else if (num.equals("02")) {
-			month = "February";
-		} else if (num.equals("03")) {
-			month = "March";
-		} else if (num.equals("04")) {
-			month = "April";
-		} else if (num.equals("05")) {
-			month = "May";
-		} else if (num.equals("06")) {
-			month = "June";
-		} else if (num.equals("07")) {
-			month = "July";
-		} else if (num.equals("08")) {
-			month = "August";
-		} else if (num.equals("09")) {
-			month = "September";
-		} else if (num.equals("10")) {
-			month = "October";
-		} else if (num.equals("11")) {
-			month = "November";
-		} else if (num.equals("12")) {
-			month = "December";
-		}
-
-		return month;
-	}
-
 	public boolean isAlertPresent() {
 
 		try {
