@@ -52,7 +52,7 @@ public class ForgotPasswordPage extends BasePage {
 		return flag;
 	}
 
-	public boolean verifyValidLogin() {
+	public boolean verifyValidForgotPassword() {
 		boolean flag = false;
 		buttonClick(WeaverLocators.submitForgotPassword, 5);
 		if (isElementPresent(WeaverLocators.loginPage, 5)) {

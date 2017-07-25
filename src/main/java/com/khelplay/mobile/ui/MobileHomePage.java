@@ -37,5 +37,12 @@ public class MobileHomePage extends BasePage {
 
 	}
 
+	public MobileChangePassword changePassword() {
+		buttonClick(WeaverLocators.lobbyMenuButton, 5);
+		buttonClick(WeaverLocators.myAccountMenuButton, 5);
+		buttonClick(WeaverLocators.changePasswordButton, 5);
+		return new MobileChangePassword(driver);
+	}
+
 
 }
