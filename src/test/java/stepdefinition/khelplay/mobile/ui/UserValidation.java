@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import com.khelplay.mobile.ui.ForgotPasswordPage;
 import com.khelplay.mobile.ui.InstantPlayPage;
-import com.khelplay.mobile.ui.MobileChangePassword;
+import com.khelplay.mobile.ui.MobileDrawerPage;
 import com.khelplay.mobile.ui.MobileHomePage;
 import com.khelplay.mobile.ui.MobileLoginPage;
 import com.khelplay.mobile.ui.MobileRegistrationPage;
@@ -19,7 +19,7 @@ public class UserValidation {
 	ForgotPasswordPage forgotPasswordPage = (ForgotPasswordPage) ForgotPasswordPage.obj;
 	MobileHomePage mobileHomePage;
 	MobileRegistrationPage mobileRegistrationPage = (MobileRegistrationPage) MobileRegistrationPage.obj;
-	MobileChangePassword mobileChangePassword = (MobileChangePassword) MobileChangePassword.obj;
+	MobileDrawerPage mobileDrawerPage = (MobileDrawerPage) MobileDrawerPage.obj;
 	InstantPlayPage instantPlayPage = (InstantPlayPage) InstantPlayPage.obj;
 
 	private static Logger logger = LoggerFactory.getLogger(UserValidation.class);
@@ -93,7 +93,7 @@ public class UserValidation {
 
 	@Then("^User validates by Logging in through Changed Password then Resets default Password$")
 	public void user_validates_changed_password() throws Throwable {
-		flag = mobileChangePassword.verifyValidChangePassword();
+		flag = mobileDrawerPage.verifyValidChangePassword();
 		if (flag) {
 			logger.info("Change Password was Successful");
 		} else {
@@ -104,7 +104,7 @@ public class UserValidation {
 
 	@Then("^User validates error messages (.*) on Change Password Screen$")
 	public void user_validates_error_messages_on_changePassword_screen(String errormsg) throws Throwable {
-		flag = mobileChangePassword.verifyInvalidChangePassword(errormsg);
+		flag = mobileDrawerPage.verifyInvalidChangePassword(errormsg);
 		if (flag) {
 			logger.info("User not able to Change Password with invalid/blank password details");
 		} else {

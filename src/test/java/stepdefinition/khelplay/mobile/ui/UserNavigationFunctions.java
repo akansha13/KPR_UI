@@ -5,7 +5,7 @@ import org.junit.Assert;
 
 import com.khelplay.mobile.ui.ForgotPasswordPage;
 import com.khelplay.mobile.ui.InstantPlayPage;
-import com.khelplay.mobile.ui.MobileChangePassword;
+import com.khelplay.mobile.ui.MobileDrawerPage;
 import com.khelplay.mobile.ui.MobileHomePage;
 import com.khelplay.mobile.ui.MobileLoginPage;
 import com.khelplay.mobile.ui.MobileRegistrationPage;
@@ -19,7 +19,7 @@ public class UserNavigationFunctions {
 	public MobileHomePage mobileHomePage;
 	ForgotPasswordPage forgotPasswordPage;
 	MobileRegistrationPage mobileRegistrationPage;
-	MobileChangePassword mobileChangePassword;
+	MobileDrawerPage mobileDrawerPage;
 	InstantPlayPage instantPlayPage;
 	private static Logger logger = Logger.getLogger(UserNavigationFunctions.class);
 
@@ -83,12 +83,12 @@ public class UserNavigationFunctions {
 	@Given("^User navigates to Change Password page$")
 	public void User_navigates_to_ChangePassword_page() throws Throwable {
 		try {
-			mobileChangePassword = mobileHomePage.changePassword();
+			mobileDrawerPage = mobileHomePage.changePassword();
 		} catch (Exception e) {
 			logger.warn("Exception Occured:" + e);
 			logger.error("User is not navigated to ChangePassword Page");
 			Assert.fail();
 		}
-		MobileChangePassword.obj = mobileChangePassword;
+		MobileDrawerPage.obj = mobileDrawerPage;
 	}
 }

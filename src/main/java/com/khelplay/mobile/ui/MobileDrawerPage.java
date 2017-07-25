@@ -9,12 +9,12 @@ import com.khelplay.common.BasePage;
 import com.khelplay.objectrepository.mobile.WeaverLocators;
 import com.khelplay.utils.ConfigManager;
 
-public class MobileChangePassword extends BasePage {
+public class MobileDrawerPage extends BasePage {
 
-	private static Logger logger = LoggerFactory.getLogger(MobileChangePassword.class);
-	public static MobileChangePassword obj;
+	private static Logger logger = LoggerFactory.getLogger(MobileDrawerPage.class);
+	public static MobileDrawerPage obj;
 
-	public MobileChangePassword(WebDriver driver) {
+	public MobileDrawerPage(WebDriver driver) {
 		super(driver);
 		if (isElementPresent(WeaverLocators.changePasswordPage, 5)) {
 			logger.info("Change Password page is Present");

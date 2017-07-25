@@ -3,7 +3,7 @@ package stepdefinition.khelplay.mobile.ui;
 import org.apache.log4j.Logger;
 
 import com.khelplay.mobile.ui.ForgotPasswordPage;
-import com.khelplay.mobile.ui.MobileChangePassword;
+import com.khelplay.mobile.ui.MobileDrawerPage;
 import com.khelplay.mobile.ui.MobileLoginPage;
 import com.khelplay.mobile.ui.MobileRegistrationPage;
 import com.khelplay.utils.ConfigManager;
@@ -15,7 +15,7 @@ public class UserTextboxFunctions {
 	MobileLoginPage mobileLoginPage = (MobileLoginPage) MobileLoginPage.obj;
 	ForgotPasswordPage forgotPasswordPage = (ForgotPasswordPage) ForgotPasswordPage.obj;
 	MobileRegistrationPage mobileRegistrationPage = (MobileRegistrationPage) MobileRegistrationPage.obj;
-	MobileChangePassword mobileChangePassword = (MobileChangePassword) MobileChangePassword.obj;
+	MobileDrawerPage mobileDrawerPage = (MobileDrawerPage) MobileDrawerPage.obj;
 	public static Logger logger = Logger.getLogger(UserTextboxFunctions.class);
 
 	@When("^User enters valid app credentials in app$")
@@ -82,24 +82,24 @@ public class UserTextboxFunctions {
 	
 	@When("^User enters Old Password, New Password and Retype Password$")
 	public void User_changes_Password() throws Throwable {
-		mobileChangePassword.OldPassword(ConfigManager.getProperty("Password"));
-		mobileChangePassword.NewPassword(ConfigManager.getProperty("NewPassword"));
-		mobileChangePassword.RetypePassword(ConfigManager.getProperty("NewPassword"));
-		mobileChangePassword.changePasswordOK();
+		mobileDrawerPage.OldPassword(ConfigManager.getProperty("Password"));
+		mobileDrawerPage.NewPassword(ConfigManager.getProperty("NewPassword"));
+		mobileDrawerPage.RetypePassword(ConfigManager.getProperty("NewPassword"));
+		mobileDrawerPage.changePasswordOK();
 	}
 	
 	@When("^User enters invalid/blank Old Password (.*)$")
 	public void User_enters_invalid_blank_OldPassword(String oldpassword) throws Throwable {
-		mobileChangePassword.OldPassword(oldpassword);
+		mobileDrawerPage.OldPassword(oldpassword);
 	} 
 
 	@When("^User enters invalid/blank New Password (.*)$")
 	public void User_enters_invalid_blank_NewPassword(String newpassword) throws Throwable {
-		mobileChangePassword.NewPassword(newpassword);
+		mobileDrawerPage.NewPassword(newpassword);
 	} 
 	
 	@When("^User enters invalid/blank Retype Password (.*)$")
 	public void User_enters_invalid_blank_RetypePassword(String retypepassword) throws Throwable {
-		mobileChangePassword.RetypePassword(retypepassword);
+		mobileDrawerPage.RetypePassword(retypepassword);
 	} 
 }

@@ -1,17 +1,17 @@
 @Weaver @Mobile @Hybrid @ChangePassword
-Feature: Title of your feature
+Feature: This is Change Password feature
 
   Background: 
     Given User is logged in app
 
   @India @ValidateChangePassword @KPR
-  Scenario: Title of your scenario
+  Scenario: Testing Change password with valid credentials
     Given User navigates to Change Password page
     When User enters Old Password, New Password and Retype Password
     Then User validates by Logging in through Changed Password then Resets default Password
 
   @India @ValidateInvalidChangePassword @KPR
-  Scenario Outline: Title of your scenario outline
+  Scenario Outline: Testing Change password with invalid credential
     Given User navigates to Change Password page
     When User enters invalid/blank Old Password <OldPassword>
     And User enters invalid/blank New Password <NewPassword>
