@@ -46,7 +46,7 @@ public class BasePage {
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 		functionLibrary = new CommonFunctionLibrary(this.driver);
-		connnection=DBConnection.getInstance();
+		connnection = DBConnection.getInstance();
 	}
 
 	public boolean isElementPresent(By locator, int timeoutInSeconds) {
@@ -237,7 +237,6 @@ public class BasePage {
 			Thread.sleep(2000);
 			return true;
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		}

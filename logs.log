@@ -1,0 +1,18 @@
+2017-07-03 11:30:39 [stepdefinition.AttachHooks] INFO :: Inside set up method of before hook
+2017-07-03 11:31:19 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Login popup is present
+2017-07-03 11:31:34 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Notification dismissed
+2017-07-03 11:31:37 [com.khelplay.mobile.ui.MobileHomePage] INFO :: User has logged in
+2017-07-03 11:31:40 [com.khelplay.mobile.ui.InstantPlayPage] INFO :: deals table is opened
+2017-07-03 11:34:06 [stepdefinition.AttachHooks] INFO :: Inside set up method of before hook
+2017-07-03 11:34:24 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Login popup is present
+2017-07-03 11:34:38 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Notification dismissed
+2017-07-03 11:34:40 [com.khelplay.mobile.ui.MobileHomePage] INFO :: User has logged in
+2017-07-03 11:34:44 [com.khelplay.mobile.ui.InstantPlayPage] INFO :: deals table is opened
+2017-07-03 11:35:19 [com.khelplay.mobile.ui.InstantPlayPage] INFO :: cards sorted
+2017-07-03 11:35:22 [stepdefinition.AttachHooks] INFO :: Inside set up method of before hook
+2017-07-03 11:35:40 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Login popup is present
+2017-07-03 11:35:54 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Notification dismissed
+2017-07-03 11:35:58 [com.khelplay.mobile.ui.MobileHomePage] INFO :: User has logged in
+2017-07-03 11:36:01 [com.khelplay.mobile.ui.InstantPlayPage] INFO :: deals table is opened
+2017-07-03 11:36:34 [com.khelplay.mobile.ui.InstantPlayPage] INFO :: cards sorted
+2017-07-03 11:36:43 [com.khelplay.mobile.ui.InstantPlayPage] INFO :: User has left table
