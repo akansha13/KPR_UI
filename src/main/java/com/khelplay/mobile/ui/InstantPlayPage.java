@@ -30,7 +30,11 @@ public class InstantPlayPage extends BasePage {
 	}
 
 	public void selectTakeSeat() {
-		buttonClick(WeaverLocators.takeSeat, 5);
+		if (findElement(WeaverLocators.vacantSeatPlayer1, 5).getText().contains("Take Seat")) {
+			buttonClick(WeaverLocators.takeSeatPlayer1, 5);
+		} else {
+			buttonClick(WeaverLocators.takeSeatPlayer2, 5);
+		}
 	}
 
 	public void selectCardData() {
