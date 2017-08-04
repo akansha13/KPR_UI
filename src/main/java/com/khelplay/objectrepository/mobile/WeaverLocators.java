@@ -113,5 +113,11 @@ public class WeaverLocators {
 			"new UiSelector().className(android.widget.ExpandableListView).resourceIdMatches(\".*/drawer_listview\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(0))");
 
 	public static String fisrtHandHistory = "new UiSelector().className(android.widget.HorizontalScrollView).resourceIdMatches(\".*/scroll_history\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(";
+	public static By reportsButton = MobileBy.xpath("//android.widget.TextView[@text='Reports']");
+	public static By transactionDetailsButton = MobileBy.xpath("//android.widget.TextView[@text='Transaction Details']");
+	public static By fromDate = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/edttxt_txn_from\")");
+	public static By toDate = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/edttxt_txn_to\")");
+	public static By mobileReportsPage = MobileBy
+			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/img_title_report\")");;
 
 }

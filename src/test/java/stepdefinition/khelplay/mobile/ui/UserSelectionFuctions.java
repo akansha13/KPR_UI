@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import com.khelplay.mobile.ui.InstantPlayPage;
 import com.khelplay.mobile.ui.MobileHomePage;
+import com.khelplay.mobile.ui.MobileReportsPage;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -14,6 +15,7 @@ import cucumber.api.java.en.When;
 public class UserSelectionFuctions {
 	MobileHomePage homePage = (MobileHomePage) MobileHomePage.obj;
 	InstantPlayPage instantPlayPage = (InstantPlayPage) InstantPlayPage.obj;
+	MobileReportsPage mobileReportsPage = (MobileReportsPage) MobileReportsPage.obj;
 	private static Logger logger = LoggerFactory.getLogger(UserSelectionFuctions.class);
 
 	
@@ -47,6 +49,11 @@ public class UserSelectionFuctions {
 	@When("^User select card from closed deck$")
 	public void select_sort_module() throws Throwable {
 		instantPlayPage.selectClosedCard();
+	}
+	
+	@When("^User selects calendar date$")
+	public void select_calendar_module() throws Throwable {
+		mobileReportsPage.selectCalendarDate();
 	}
 
 }

@@ -43,6 +43,13 @@ public class MobileHomePage extends BasePage {
 		buttonClick(WeaverLocators.changePasswordButton, 5);
 		return new MobileDrawerPage(driver);
 	}
+	
+	public MobileReportsPage transactionDetailsReport() {
+		buttonClick(WeaverLocators.lobbyMenuButton, 5);
+		buttonClick(WeaverLocators.reportsButton, 5);
+		buttonClick(WeaverLocators.transactionDetailsButton, 5);
+		return new MobileReportsPage(driver);
+	}
 
 
 }

@@ -6,6 +6,7 @@ import com.khelplay.mobile.ui.ForgotPasswordPage;
 import com.khelplay.mobile.ui.MobileDrawerPage;
 import com.khelplay.mobile.ui.MobileLoginPage;
 import com.khelplay.mobile.ui.MobileRegistrationPage;
+import com.khelplay.mobile.ui.MobileReportsPage;
 import com.khelplay.utils.ConfigManager;
 
 import cucumber.api.java.en.When;
@@ -16,6 +17,7 @@ public class UserTextboxFunctions {
 	ForgotPasswordPage forgotPasswordPage = (ForgotPasswordPage) ForgotPasswordPage.obj;
 	MobileRegistrationPage mobileRegistrationPage = (MobileRegistrationPage) MobileRegistrationPage.obj;
 	MobileDrawerPage mobileDrawerPage = (MobileDrawerPage) MobileDrawerPage.obj;
+	MobileReportsPage mobileReportsPage = (MobileReportsPage) MobileReportsPage.obj;
 	public static Logger logger = Logger.getLogger(UserTextboxFunctions.class);
 
 	@When("^User enters valid app credentials in app$")
@@ -102,4 +104,12 @@ public class UserTextboxFunctions {
 	public void User_enters_invalid_blank_RetypePassword(String retypepassword) throws Throwable {
 		mobileDrawerPage.RetypePassword(retypepassword);
 	} 
+	
+	@When("^player sets Transaction Type (.*) of transactionDetails between (.*) to (.*)$")
+	public void Player_sets_Transaction_Type_of_transactionDetail(String txnType, String fromDate, String toDate) throws Throwable {
+		mobileReportsPage.FromDate(fromDate);
+		//mobileReportsPage.ToDate(toDate);
+	}
+	
+	
 }

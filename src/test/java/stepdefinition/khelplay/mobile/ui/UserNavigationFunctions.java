@@ -9,6 +9,7 @@ import com.khelplay.mobile.ui.MobileDrawerPage;
 import com.khelplay.mobile.ui.MobileHomePage;
 import com.khelplay.mobile.ui.MobileLoginPage;
 import com.khelplay.mobile.ui.MobileRegistrationPage;
+import com.khelplay.mobile.ui.MobileReportsPage;
 import com.khelplay.utils.ConfigManager;
 
 import cucumber.api.java.en.Given;
@@ -21,6 +22,7 @@ public class UserNavigationFunctions {
 	MobileRegistrationPage mobileRegistrationPage;
 	MobileDrawerPage mobileDrawerPage;
 	InstantPlayPage instantPlayPage;
+	MobileReportsPage mobileReportsPage;
 	private static Logger logger = Logger.getLogger(UserNavigationFunctions.class);
 
 	@Given("^User navigates to login popup$")
@@ -90,5 +92,17 @@ public class UserNavigationFunctions {
 			Assert.fail();
 		}
 		MobileDrawerPage.obj = mobileDrawerPage;
+	}
+	
+	@Given("^User navigates to Transaction Details Report page$")
+	public void User_navigates_to_Transaction_Details_Report_page() throws Throwable {
+		try{
+			mobileReportsPage = mobileHomePage.transactionDetailsReport();
+		} catch (Exception e) {
+			logger.warn("Exception Occured:" + e);
+			logger.error("User is not navigated to Transaction Details Report Page");
+			Assert.fail();
+		}
+		MobileReportsPage.obj = mobileReportsPage;		
 	}
 }
