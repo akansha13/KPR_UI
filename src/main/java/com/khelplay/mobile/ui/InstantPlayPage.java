@@ -1,10 +1,14 @@
 package com.khelplay.mobile.ui;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -150,6 +154,76 @@ public class InstantPlayPage extends BasePage {
 			flag = false;
 		}
 		return flag;
+	}
+
+	public void groupCard(String player, String group) {
+		buttonClick(WeaverLocators.sortCard, 5);
+		if (isElementPresent(WeaverLocators.timer_1G, 10) || isElementPresent(WeaverLocators.extra_timer, 10)) {
+
+			String[] a = group.split(",");
+
+			List<WebElement> parent = driver
+					.findElements(By.className("android.widget.RelativeLayout").id("layout_card_distribution"));
+			List<WebElement> child = parent.get(0).findElements(By.className("android.widget.TextView"));
+			System.out.println(child.size());
+
+			for (int i = child.size() - 1; i >= 0; i--) {
+				boolean flag1 = isElementPresent(WeaverLocators.cardlist + i + WeaverLocators.cardImageData, 1);
+				if (flag1 == true) {
+					String cardData = findElement(WeaverLocators.cardlist + i + WeaverLocators.cardImageData)
+							.getAttribute("name");
+					if (Arrays.asList(a).contains(cardData)) {
+						buttonClick(WeaverLocators.cardlist + i + WeaverLocators.cardlist1);
+					}
+				} else if (flag1 == false)
+					break;
+			}
+			buttonClick(WeaverLocators.groupBtn, 5);
+		} else {
+			System.out.println("Player 2 chance");
+		}
+	}
+
+	public void discardCard(String player, String discardCard) {
+		if (isElementPresent(WeaverLocators.timer_1G, 10) || isElementPresent(WeaverLocators.extra_timer, 10)) {
+			buttonClick(WeaverLocators.closedDeck, 5);
+
+			List<WebElement> parent = driver
+					.findElements(By.className("android.widget.RelativeLayout").id("layout_card_distribution"));
+			List<WebElement> child = parent.get(0).findElements(By.className("android.widget.TextView"));
+			System.out.println(child.size());
+
+			for (int i = child.size() - 1; i >= 0; i--) {
+				boolean flag1 = isElementPresent(WeaverLocators.cardlist + i + WeaverLocators.cardImageData, 5);
+				if (flag1 == true) {
+					String cardData = findElement(WeaverLocators.cardlist + i + WeaverLocators.cardImageData)
+							.getAttribute("name");
+					if (discardCard.contains(cardData)) {
+						buttonClick(WeaverLocators.cardlist + i + WeaverLocators.cardlist1);
+						buttonClick(WeaverLocators.discard, 5);
+					}
+				} else if (flag1 == false)
+					break;
+			}
+			System.out.println("hello");
+		} else {
+			System.out.println("Player 2 chance");
+		}
+
+	}
+
+	public void closedDeck(String player) {
+		if (isElementPresent(WeaverLocators.timer_1G, 10) || isElementPresent(WeaverLocators.extra_timer, 10)) {
+			buttonClick(WeaverLocators.closedDeck, 5);
+		}
+
+	}
+
+	public void placeShow(String player, String showCard) {
+		if (isElementPresent(WeaverLocators.timer_1G, 10) || isElementPresent(WeaverLocators.extra_timer, 10)) {
+
+		}
+
 	}
 
 }

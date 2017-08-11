@@ -13,7 +13,7 @@ public class DriverFactory {
 	 * @throws InterruptedException
 	 */
 	public static void appiumStart() throws IOException, InterruptedException {
-		String[] command = { "cmd.exe", "/C", "Start", "appium" };
+		String[] command = { "cmd.exe", "/C", "Start appium -a 127.0.0.1 -p " + ConfigManager.getProperty("AppiumPort") };
 
 		ProcessBuilder pb;
 		if (process == null) {

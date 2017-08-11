@@ -25,6 +25,7 @@ public class WeaverLocators {
 			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/layout_game_type_value\")");
 
 	public static String cardlist = "new UiSelector().className(android.widget.RelativeLayout).resourceIdMatches(\".*/layout_card_distribution\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(";
+	public static String cardlist_text = "new UiSelector().className(android.widget.RelativeLayout).resourceIdMatches(\".*/layout_card_distribution\").childSelector(new UiSelector().className(android.widget.TextView).index(";
 
 	public static String cardlist1 = ")).childSelector(new UiSelector().className(android.widget.TextView).resourceIdMatches(\".*/card_text\"))";
 
@@ -104,6 +105,8 @@ public class WeaverLocators {
 	public static By retypePasswordError = MobileBy
 			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/retype_pswd_error\")");
 	public static By timer_1G = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/timer_1G\")");
+	public static By extra_timer = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/timerlay1G\")");
+
 	public static By closedDeck = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/card_deck\")");
 	public static String card14 = "new UiSelector().className(android.widget.RelativeLayout).resourceIdMatches(\".*/layout_card_distribution\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(13))";
 	public static By meld = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_meld\")");
@@ -113,9 +116,13 @@ public class WeaverLocators {
 
 	public static String fisrtHandHistory = "new UiSelector().className(android.widget.HorizontalScrollView).resourceIdMatches(\".*/scroll_history\").childSelector(new UiSelector().className(android.widget.RelativeLayout).index(";
 	// GAME PLAY TWO PLAYER
-	public static By vacantSeatPlayer1 = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/username_5\").childSelector(new UiSelector().className(android.widget.TextView).index(0))");
+	public static By vacantSeatPlayer1 = MobileBy.AndroidUIAutomator(
+			"new UiSelector().resourceIdMatches(\".*/username_5\").childSelector(new UiSelector().className(android.widget.TextView).index(0))");
 	public static By takeSeatPlayer2 = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/img_2\")");
 
 	public static By takeSeatPlayer1 = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/img_5\")");
+	public static By groupBtn = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_group\")");
+	public static By discard = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_discard\")");
+	public static By show = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_drop\")");
 
 }

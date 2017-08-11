@@ -67,7 +67,6 @@ public class BasePage {
 
 	public boolean isElementPresent(String locator, int timeoutInSeconds) {
 		try {
-			wait = new WebDriverWait(driver, timeoutInSeconds);
 			WebElement elem = ((AndroidDriver) driver).findElementByAndroidUIAutomator(locator);
 			if (elem != null) {
 				return true;

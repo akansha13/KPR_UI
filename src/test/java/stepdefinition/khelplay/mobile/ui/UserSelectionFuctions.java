@@ -16,7 +16,6 @@ public class UserSelectionFuctions {
 	InstantPlayPage instantPlayPage = (InstantPlayPage) InstantPlayPage.obj;
 	private static Logger logger = LoggerFactory.getLogger(UserSelectionFuctions.class);
 
-	
 	@Given("^User selects (.*) game module app icon$")
 	public void select_game_module(String gameModule) throws Throwable {
 		instantPlayPage = homePage.selectInstantPlay();
@@ -24,29 +23,52 @@ public class UserSelectionFuctions {
 			logger.error("User is not navigated to instant Play Page");
 			Assert.fail();
 		}
-		InstantPlayPage.obj=instantPlayPage;
+		InstantPlayPage.obj = instantPlayPage;
 	}
+
 	@When("^User selects take seat on table$")
 	public void select_takeseat_module() throws Throwable {
 		instantPlayPage.selectTakeSeat();
 	}
+
 	@When("^User selects cards data from table$")
 	public void select_carddata_module() throws Throwable {
 		instantPlayPage.selectCardData();
 	}
-	
+
 	@When("^User selects sort cards on table$")
 	public void select_card_sort_module() throws Throwable {
 		instantPlayPage.selectSortCard();
 	}
+
 	@Then("^User selects leave table on table$")
 	public void select_drop_module() throws Throwable {
 		instantPlayPage.selectLeaveTable();
 	}
-	
+
 	@When("^User select card from closed deck$")
 	public void select_sort_module() throws Throwable {
 		instantPlayPage.selectClosedCard();
+	}
+
+	@When("^(.*) groups his cards as (.*)$")
+	public void select_group_card(String Player, String group) throws Throwable {
+		instantPlayPage.groupCard(Player, group);
+	}
+
+	@When("^(.*) picks card from closed deck and discard (.*)$")
+	public void select_closed_deck_card_discard(String Player, String discardCard) throws Throwable {
+		instantPlayPage.discardCard(Player, discardCard);
+	}
+
+	@When("^(.*) picks card from closed deck$")
+	public void select_closed_deck_card(String Player) throws Throwable {
+		instantPlayPage.closedDeck(Player);
+	}
+
+	@When("^(.*) places show (.*)$")
+	public void places_show(String Player, String showCard) throws Throwable {
+		instantPlayPage.placeShow(Player, showCard);
 	}
 
 }
