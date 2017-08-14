@@ -53,7 +53,7 @@ public class MobileLoginPage extends BasePage {
 				} else {
 					logger.info("Notification pop up not present");
 				}
-				buttonClick(WeaverLocators.skipTour, 10);
+				buttonClick(WeaverLocators.skipTour, 20);
 				return new MobileHomePage(driver);
 			}
 

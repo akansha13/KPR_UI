@@ -180,7 +180,6 @@ public class InstantPlayPage extends BasePage {
 			}
 			buttonClick(WeaverLocators.groupBtn, 5);
 		} else {
-			findElement(WeaverLocators.timer_1G, 30);
 			System.out.println("Chance switched");
 		}
 	}
@@ -202,6 +201,7 @@ public class InstantPlayPage extends BasePage {
 					if (discardCard.contains(cardData)) {
 						buttonClick(WeaverLocators.cardlist + i + WeaverLocators.cardlist1);
 						buttonClick(WeaverLocators.discard, 5);
+						break;
 					}
 				} else if (flag1 == false)
 					break;
