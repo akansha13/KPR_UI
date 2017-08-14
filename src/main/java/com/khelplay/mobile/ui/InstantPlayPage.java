@@ -180,7 +180,8 @@ public class InstantPlayPage extends BasePage {
 			}
 			buttonClick(WeaverLocators.groupBtn, 5);
 		} else {
-			System.out.println("Player 2 chance");
+			findElement(WeaverLocators.timer_1G, 30);
+			System.out.println("Chance switched");
 		}
 	}
 
@@ -207,14 +208,16 @@ public class InstantPlayPage extends BasePage {
 			}
 			System.out.println("hello");
 		} else {
-			System.out.println("Player 2 chance");
+			findElement(WeaverLocators.timer_1G, 30);
+			System.out.println("Chance switched");
 		}
-
 	}
 
 	public void closedDeck(String player) {
 		if (isElementPresent(WeaverLocators.timer_1G, 10) || isElementPresent(WeaverLocators.extra_timer, 10)) {
 			buttonClick(WeaverLocators.closedDeck, 5);
+		} else {
+			System.out.println("chance switched");
 		}
 
 	}
@@ -222,6 +225,29 @@ public class InstantPlayPage extends BasePage {
 	public void placeShow(String player, String showCard) {
 		if (isElementPresent(WeaverLocators.timer_1G, 10) || isElementPresent(WeaverLocators.extra_timer, 10)) {
 
+			List<WebElement> parent = driver
+					.findElements(By.className("android.widget.RelativeLayout").id("layout_card_distribution"));
+			List<WebElement> child = parent.get(0).findElements(By.className("android.widget.TextView"));
+			System.out.println(child.size());
+
+			for (int i = child.size() - 1; i >= 0; i--) {
+				boolean flag1 = isElementPresent(WeaverLocators.cardlist + i + WeaverLocators.cardImageData, 5);
+				if (flag1 == true) {
+					String cardData = findElement(WeaverLocators.cardlist + i + WeaverLocators.cardImageData)
+							.getAttribute("name");
+					if (showCard.contains(cardData)) {
+						buttonClick(WeaverLocators.cardlist + i + WeaverLocators.cardlist1);
+						buttonClick(WeaverLocators.show, 5);
+						buttonClick(WeaverLocators.leaveTableYes, 5);
+						buttonClick(WeaverLocators.meld, 5);
+						buttonClick(WeaverLocators.leaveTableYes, 5);
+					}
+				} else if (flag1 == false)
+					break;
+			}
+
+		} else {
+			System.out.println("Player 2 chance");
 		}
 
 	}
