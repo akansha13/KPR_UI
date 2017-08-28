@@ -12,6 +12,7 @@ import com.khelplay.mobile.ui.MobileLoginPage;
 import com.khelplay.mobile.ui.MobileRegistrationPage;
 
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class UserValidation {
 
@@ -124,5 +125,4 @@ public class UserValidation {
 			Assert.fail();
 		}
 	}
-
 }

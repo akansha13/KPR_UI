@@ -157,15 +157,14 @@ public class InstantPlayPage extends BasePage {
 	}
 
 	public void groupCard(String player, String group) {
-		buttonClick(WeaverLocators.sortCard, 5);
-		if (isElementPresent(WeaverLocators.timer_1G, 10) || isElementPresent(WeaverLocators.extra_timer, 10)) {
+		if (isElementPresent(WeaverLocators.timer_1G, 1) || isElementPresent(WeaverLocators.extra_timer, 1)) {
 
 			String[] a = group.split(",");
 
 			List<WebElement> parent = driver
 					.findElements(By.className("android.widget.RelativeLayout").id("layout_card_distribution"));
 			List<WebElement> child = parent.get(0).findElements(By.className("android.widget.TextView"));
-			System.out.println(child.size());
+			//System.out.println(child.size());
 
 			for (int i = child.size() - 1; i >= 0; i--) {
 				boolean flag1 = isElementPresent(WeaverLocators.cardlist + i + WeaverLocators.cardImageData, 1);
@@ -185,7 +184,7 @@ public class InstantPlayPage extends BasePage {
 	}
 
 	public void discardCard(String player, String discardCard) {
-		if (isElementPresent(WeaverLocators.timer_1G, 10) || isElementPresent(WeaverLocators.extra_timer, 10)) {
+		if (isElementPresent(WeaverLocators.timer_1G, 1) || isElementPresent(WeaverLocators.extra_timer, 1)) {
 			buttonClick(WeaverLocators.closedDeck, 5);
 
 			List<WebElement> parent = driver
@@ -223,7 +222,7 @@ public class InstantPlayPage extends BasePage {
 	}
 
 	public void placeShow(String player, String showCard) {
-		if (isElementPresent(WeaverLocators.timer_1G, 10) || isElementPresent(WeaverLocators.extra_timer, 10)) {
+		if (isElementPresent(WeaverLocators.timer_1G, 1) || isElementPresent(WeaverLocators.extra_timer, 1)) {
 
 			List<WebElement> parent = driver
 					.findElements(By.className("android.widget.RelativeLayout").id("layout_card_distribution"));
@@ -239,8 +238,8 @@ public class InstantPlayPage extends BasePage {
 						buttonClick(WeaverLocators.cardlist + i + WeaverLocators.cardlist1);
 						buttonClick(WeaverLocators.show, 5);
 						buttonClick(WeaverLocators.leaveTableYes, 5);
-						buttonClick(WeaverLocators.meld, 5);
-						buttonClick(WeaverLocators.leaveTableYes, 5);
+						//buttonClick(WeaverLocators.meld, 5);
+						//buttonClick(WeaverLocators.leaveTableYes, 5);
 					}
 				} else if (flag1 == false)
 					break;

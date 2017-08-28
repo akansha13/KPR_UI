@@ -118,11 +118,23 @@ public class WeaverLocators {
 	// GAME PLAY TWO PLAYER
 	public static By vacantSeatPlayer1 = MobileBy.AndroidUIAutomator(
 			"new UiSelector().resourceIdMatches(\".*/username_5\").childSelector(new UiSelector().className(android.widget.TextView).index(0))");
+	public static By vacantSeatPlayer2 = MobileBy.AndroidUIAutomator(
+			"new UiSelector().resourceIdMatches(\".*/username_2\").childSelector(new UiSelector().className(android.widget.TextView).index(0))");
 	public static By takeSeatPlayer2 = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/img_2\")");
 
 	public static By takeSeatPlayer1 = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/img_5\")");
 	public static By groupBtn = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_group\")");
 	public static By discard = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_discard\")");
 	public static By show = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_drop\")");
-
+	// join leave
+	public static By cashPlay = MobileBy
+			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/lobbyRummyGames\")");
+	public static By cashPopUpTitle = MobileBy
+			.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/img_title\")");
+	public static String cashGameType = "new UiSelector().resourceIdMatches(\".*/layout_game_type\").childSelector(new UiSelector().className(android.widget.RadioButton).textContains(";
+	public static String cashGamePlayer = "new UiSelector().resourceIdMatches(\".*/layout_no_of_players\").childSelector(new UiSelector().className(android.widget.RadioButton).textContains(";
+	public static By letsPlay = MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_lets_play\")");
+	//public static By leaveTableTimer= MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_leave\")");
+	//public static By leaveTableTimer= MobileBy.AndroidUIAutomator("new UiSelector().resourceIdMatches(\".*/btn_Leave\")");
+	public static By leaveTableTimer= MobileBy.xpath("//android.widget.Button[@text='Leave Table']");
 }

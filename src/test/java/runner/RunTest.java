@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 glue = "stepdefinition", 
 features = "src\\test\\resources\\features",
 dryRun = false,
-tags={"@2PlayerGamePlay"},
+tags={"@JoinLeaveTable"},
 monochrome=false)
 public class RunTest {
 };
