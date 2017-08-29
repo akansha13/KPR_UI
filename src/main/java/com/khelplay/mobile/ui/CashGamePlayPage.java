@@ -18,6 +18,8 @@ import com.khelplay.objectrepository.mobile.GamePlayBean;
 import com.khelplay.objectrepository.mobile.WeaverLocators;
 import com.khelplay.utils.ConfigManager;
 
+import junit.framework.Assert;
+
 public class CashGamePlayPage extends BasePage {
 	public static Object obj;
 	private static Logger logger = LoggerFactory.getLogger(CashGamePlayPage.class);
@@ -42,19 +44,15 @@ public class CashGamePlayPage extends BasePage {
 	}
 
 	public void selectLeaveTable() throws InterruptedException {
-		
-		List<WebElement> l=new ArrayList<WebElement>();
-		l=findAllWebElements(WeaverLocators.leaveTableTimer, 10);
-		System.out.println(l);	
-		if (l!=null) {
+
+		List<WebElement> l = new ArrayList<WebElement>();
+		l = findAllWebElements(WeaverLocators.leaveTableTimer, 10);
+		System.out.println(l);
+		if (l != null) {
 			logger.info(findElement(WeaverLocators.leaveTableTimer, 10).getText());
-			//buttonClick(WeaverLocators.leaveTableTimer, 5);
-		    l.get(1).click();
-		    logger.info("Leave Table Clicked Sucessfully");
-		/*if (isElementPresent(WeaverLocators.leaveTableTimer, 10)) {
-			System.out.println(findElement(WeaverLocators.leaveTableTimer, 10).getText());
-			buttonClick(WeaverLocators.leaveTableTimer, 5);*/
-		} else {			
+			l.get(1).click();
+			logger.info("Leave Table Clicked Sucessfully");
+		} else {
 			logger.info("Leave Table not picked");
 			buttonClick(WeaverLocators.leavetable, 5);
 			buttonClick(WeaverLocators.leaveTableYes, 5);
@@ -63,6 +61,7 @@ public class CashGamePlayPage extends BasePage {
 			logger.info("User has left table");
 		} else {
 			logger.warn("User has not left table");
+			Assert.fail("User has not left table");
 		}
 	}
 
@@ -75,7 +74,6 @@ public class CashGamePlayPage extends BasePage {
 				GamePlayBean.setTakeSeatCount(0);
 
 			} else if (flag == false) {
-				consecutiveTakeSeat(WeaverLocators.takeSeatPlayer1, WeaverLocators.vacantSeatPlayer1);
 				if (GamePlayBean.getTakeSeatCount() > 3 && GamePlayBean.getTakeSeatCount() < 6) {
 					response = given().post(
 							"http://uat-rummy.khelplayrummy.com/RummyGameEngine/generateCheckEmail.action?email=harish.indouria@skilrock.com");
@@ -92,16 +90,16 @@ public class CashGamePlayPage extends BasePage {
 					String body = response.getBody().asString();
 					System.out.println(body);
 				}
+				consecutiveTakeSeat(WeaverLocators.takeSeatPlayer1, WeaverLocators.vacantSeatPlayer1);
+
 			}
 
 		} else if (findElement(WeaverLocators.vacantSeatPlayer2, 5).getText().contains("Take Seat")) {
-			consecutiveTakeSeat(WeaverLocators.takeSeatPlayer2, WeaverLocators.vacantSeatPlayer2);
 			if (flag == true) {
 				System.out.println("table joined");
 				GamePlayBean.setTakeSeatCount(0);
 
 			} else if (flag == false) {
-				consecutiveTakeSeat(WeaverLocators.takeSeatPlayer1, WeaverLocators.vacantSeatPlayer1);
 				if (GamePlayBean.getTakeSeatCount() > 3 && GamePlayBean.getTakeSeatCount() < 6) {
 					response = given().post(
 							"http://uat-rummy.khelplayrummy.com/RummyGameEngine/generateCheckEmail.action?email=harish.indouria@skilrock.com");
@@ -119,6 +117,8 @@ public class CashGamePlayPage extends BasePage {
 					String body = response.getBody().asString();
 					System.out.println(body);
 				}
+				consecutiveTakeSeat(WeaverLocators.takeSeatPlayer2, WeaverLocators.vacantSeatPlayer2);
+
 			}
 		} else {
 			System.out.println("User in watch mode");

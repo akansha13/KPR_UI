@@ -1,8 +1,7 @@
-2017-08-28 21:04:37 [stepdefinition.AttachHooks] INFO :: Inside set up method of before hook
-2017-08-28 21:05:05 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: AndroidDriver:  on LINUX (40b06d22-1368-4e38-bd81-6852e27aa180)
-2017-08-28 21:05:15 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: update popup is not present
-2017-08-28 21:05:15 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Login popup is present
-2017-08-28 21:05:30 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Notification dismissed
-2017-08-28 21:05:32 [com.khelplay.mobile.ui.MobileHomePage] INFO :: User has logged in
-2017-08-28 21:05:35 [com.khelplay.mobile.ui.CashGamePlayPage] INFO :: cash pop up is opened
-2017-08-28 21:05:47 [com.khelplay.mobile.ui.CashGamePlayPage] INFO :: User has left table
+2017-08-29 10:37:38 [stepdefinition.AttachHooks] INFO :: Inside set up method of before hook
+2017-08-29 10:38:06 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: AndroidDriver:  on LINUX (405e64e3-2663-49be-a7e6-5f5cff0eef9b)
+2017-08-29 10:38:17 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: update popup is not present
+2017-08-29 10:38:17 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Login popup is present
+2017-08-29 10:38:31 [com.khelplay.mobile.ui.MobileLoginPage] INFO :: Notification dismissed
+2017-08-29 10:38:37 [com.khelplay.mobile.ui.MobileHomePage] INFO :: User has logged in
+2017-08-29 10:38:39 [com.khelplay.mobile.ui.CashGamePlayPage] INFO :: cash pop up is opened
